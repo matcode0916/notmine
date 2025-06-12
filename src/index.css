@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 224 71% 4%; /* Dark blue-black */
+  --foreground: 210 40% 98%; /* Almost white */
+  
+  --card: 222 47% 11%; /* Darker blue */
+  --card-foreground: 210 40% 98%;
+  
+  --popover: 224 71% 4%;
+  --popover-foreground: 210 40% 98%;
+  
+  --primary: 180 97% 31%; /* Cyan / Teal */
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: 217 33% 17%; /* Slightly lighter blue-gray */
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%; /* Lighter gray for muted text */
+  
+  --accent: 180 97% 31%; 
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 63% 31%; /* Dark red */
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 180 97% 31%;
+  
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+.orbitron-font {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.modern-card {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.modern-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(var(--primary-rgb), 0.1), 0 4px 6px -2px rgba(var(--primary-rgb), 0.05);
+  transform: translateY(-2px);
+}
+
+.modern-button {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modern-button:hover {
+  background-color: hsl(var(--primary) / 0.9);
+  transform: translateY(-1px);
+}
+
+.modern-button-outline {
+  background-color: transparent;
+  color: hsl(var(--primary));
+  border: 2px solid hsl(var(--primary));
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.modern-button-outline:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  transform: translateY(-1px);
+}
+
+.modern-input {
+  background-color: hsl(var(--input));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+  border-radius: var(--radius);
+  padding: 0.625rem 0.875rem; /* Adjusted padding to match h-10 of shadcn input */
+  height: 2.5rem; /* Equivalent to h-10 */
+}
+.modern-input::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+.modern-input:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.5);
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, #67e8f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.glassmorphism {
+  background: rgba(23, 37, 84, 0.3); /* Adjust color and opacity as needed hsl(var(--card)) with alpha */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.prose {
+  color: hsl(var(--muted-foreground));
+}
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: hsl(var(--foreground));
+}
+.prose strong {
+  color: hsl(var(--primary));
+}
+.prose a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+}
+.prose a:hover {
+  text-decoration: underline;
+}
+.prose ul > li::before {
+  background-color: hsl(var(--primary));
+}
+.prose blockquote {
+  border-left-color: hsl(var(--primary));
+  color: hsl(var(--muted-foreground));
+}
